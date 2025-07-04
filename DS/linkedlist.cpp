@@ -17,51 +17,18 @@ public:
 };
 
 // Function to insert a new node at the head of the linked list
-
-void insert_at_head(Node* head,int val){
+void insert_at_head(Node* &head,int val){
     Node* newnode = new Node(val);
     newnode-> next = head;
+    head = newnode;
 }
-
-
-// Visual Connection of linked list
-
-// Before insertion, the linked list looks like this:
-
-/*
-  head --> 0x1010
-             |
-             v
-           +---------------------------+
-           | 20 | next: 0x1020         |  <-- address: 0x1010
-           +---------------------------+
-                     |
-                     v
-           +---------------------------+
-           | 10 | next: NULL           |  <-- address: 0x1020
-           +---------------------------+
-*/
-
-// After insertion, the linked list looks like this:
-
-/*
-  head --> 0x1000
-             |
-             v
-           +---------------------------+
-           | 30 | next: 0x1010         |  <-- address: 0x1000
-           +---------------------------+
-                     |
-                     v
-           +---------------------------+
-           | 20 | next: 0x1020         |  <-- address: 0x1010
-           +---------------------------+
-                     |
-                     v
-           +---------------------------+
-           | 10 | next: NULL           |  <-- address: 0x1020
-           +---------------------------+
-*/
+void print_linked_list(Node* head){
+    Node* tmp = head;
+    while(tmp !=NULL){
+        cout <<tmp->val << endl;
+        tmp = tmp->next;
+    }
+}
 
 
 int solve() {
@@ -75,6 +42,7 @@ int solve() {
     a->next= b;
 
     insert_at_head(head,100);
+    print_linked_list(head);
 
 
 
