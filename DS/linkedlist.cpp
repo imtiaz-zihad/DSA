@@ -22,7 +22,25 @@ void insert_at_head(Node* &head,int val){
     newnode-> next = head;
     head = newnode;
 }
-void print_linked_list(Node* head){
+// Function to insert a new node at the tail of the linked list
+void insert_at_tail(Node* &head,int val){
+      Node *newnode = new Node(val);
+
+      if (head == NULL)
+      {
+          head  = newnode;
+      }
+        Node* tmp = head;
+        while(tmp->next !=NULL){
+        tmp = tmp->next;
+    }
+
+    tmp->next = newnode;
+}
+
+
+// Function to print the linked list
+void print_linked_list(Node* &head){
     Node* tmp = head;
     while(tmp !=NULL){
         cout <<tmp->val << endl;
@@ -42,6 +60,7 @@ int solve() {
     a->next= b;
 
     insert_at_head(head,100);
+    insert_at_tail(head,50);
     print_linked_list(head);
 
 
