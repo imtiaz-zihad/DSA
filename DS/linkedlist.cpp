@@ -29,6 +29,7 @@ void insert_at_tail(Node* &head,int val){
       if (head == NULL)
       {
           head  = newnode;
+          return;
       }
         Node* tmp = head;
         while(tmp->next !=NULL){
@@ -45,6 +46,7 @@ void insert_at_tail_optimised(Node* &head,Node* &tail,int val){
       {
           head  = newnode;
           tail = newnode;
+          return;
       }
         
 
@@ -75,21 +77,31 @@ void print_linked_list(Node* &head){
 
 int solve() {
 
-    Node* head = new Node(10);
-    Node* a = new Node(20);
-    Node* tail = new Node(30);
+    // Node* head = new Node(10);
+    // Node* a = new Node(20);
+    // Node* tail = new Node(30);
+    Node* head = NULL;
+    Node* tail = NULL;
 
-
-    head->next = a;
-    a->next= tail;
-
-    insert_at_head(head,100);
-    insert_at_tail(head,50);
-    insert_at_tail_optimised(head,tail,60);
-    insert_at_any_pos(head,4,40);
+    int val;
+    while(true){
+        cin >> val ;
+        if(val == -1){
+            break;
+        }
+        insert_at_tail_optimised(head,tail,val);
+    }
     print_linked_list(head);
 
 
+    // head->next = a;
+    // a->next= tail;
+
+    // insert_at_head(head,100);
+    // insert_at_tail(head,50);
+    // insert_at_tail_optimised(head,tail,60);
+    // insert_at_any_pos(head,4,40);
+    // print_linked_list(head);
 
    return 0;
 }
