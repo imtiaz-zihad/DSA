@@ -37,6 +37,18 @@ void insert_at_tail(Node* &head,int val){
 
     tmp->next = newnode;
 }
+// Function to insert a new node at the tail of the linked list(optimized version)
+void insert_at_tail_optimised(Node* &head,Node* &tail,int val){
+      Node *newnode = new Node(val);
+
+      if (head == NULL)
+      {
+          head  = newnode;
+      }
+        
+
+    tail->next = newnode;
+}
 
 //Function to insert a new node at any position in the linked list
 void insert_at_any_pos(Node* &head,int idx,int val){
@@ -63,14 +75,15 @@ int solve() {
 
     Node* head = new Node(10);
     Node* a = new Node(20);
-    Node* b = new Node(30);
+    Node* tail = new Node(30);
 
 
     head->next = a;
-    a->next= b;
+    a->next= tail;
 
     insert_at_head(head,100);
     insert_at_tail(head,50);
+    insert_at_tail_optimised(head,tail,60);
     insert_at_any_pos(head,4,40);
     print_linked_list(head);
 
