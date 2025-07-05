@@ -83,6 +83,13 @@ void print_reverse(Node* tmp){
     cout << tmp-> val << endl;
 }
 
+void delete_at_head(Node* &head){
+    Node* deleteNode = head;
+
+    head= head->next;
+    delete deleteNode;
+}
+
 
 int solve() {
 
@@ -103,6 +110,7 @@ int solve() {
     print_linked_list(head);
 
     print_reverse(head);
+    delete_at_head(head);
 
 
     // head->next = a;
