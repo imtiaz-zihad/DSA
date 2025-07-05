@@ -92,8 +92,6 @@ void delete_at_head(Node* &head){
     delete deleteNode;
 }
 
-
-// Function to delete a node at any position in the linked list
 void delete_at_any(Node* &head,int idx){
     Node* tmp = head;
     for(int i=1;i<idx;i++){
@@ -102,6 +100,23 @@ void delete_at_any(Node* &head,int idx){
     Node* deleteNode = tmp->next;
     tmp->next = tmp->next->next;
     delete deleteNode;
+}
+
+
+// Function to delete the node at the tail of the linked list
+void delete_at_tail(Node* &head,Node* &tail,int idx){
+    Node* tmp = head;
+
+    for (int i = 1; i < idx; i++)
+    {
+        tmp = tmp->next;
+    }
+
+    Node* deleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+
+    delete deleteNode;
+    tail = tmp;
 }
 int solve() {
 
@@ -123,7 +138,8 @@ int solve() {
 
     //print_reverse(head);
     //delete_at_head(head);
-    delete_at_any(head,2);
+    //delete_at_any(head,2);
+    delete_at_tail(head,tail,5);
     print_linked_list(head);
 
 
