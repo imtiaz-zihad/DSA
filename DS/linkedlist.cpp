@@ -102,8 +102,6 @@ void delete_at_any(Node* &head,int idx){
     delete deleteNode;
 }
 
-
-// Function to delete the node at the tail of the linked list
 void delete_at_tail(Node* &head,Node* &tail,int idx){
     Node* tmp = head;
 
@@ -117,6 +115,21 @@ void delete_at_tail(Node* &head,Node* &tail,int idx){
 
     delete deleteNode;
     tail = tmp;
+}
+
+
+// function to sort the linked list using selection sort
+void sort_linked_list(Node* head){
+    for (Node* i = head; i->next != NULL; i = i->next){
+        for(Node* j= i->next;j != NULL;j= j->next){
+            if (i->val > j->val)
+            {
+                swap(i->val,j->val);
+            }
+        }
+
+    }
+
 }
 int solve() {
 
@@ -139,7 +152,8 @@ int solve() {
     //print_reverse(head);
     //delete_at_head(head);
     //delete_at_any(head,2);
-    delete_at_tail(head,tail,5);
+    //delete_at_tail(head,tail,5);
+    sort_linked_list(head);
     print_linked_list(head);
 
 
