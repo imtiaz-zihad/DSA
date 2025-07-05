@@ -74,6 +74,7 @@ void print_linked_list(Node* &head){
     }
 }
 
+// Function to print the linked list in reverse order using recursion
 void print_reverse(Node* tmp){
     //base case
     if(tmp== NULL){
@@ -83,6 +84,7 @@ void print_reverse(Node* tmp){
     cout << tmp-> val << endl;
 }
 
+// Function to delete the node at the head of the linked list
 void delete_at_head(Node* &head){
     Node* deleteNode = head;
 
@@ -91,6 +93,16 @@ void delete_at_head(Node* &head){
 }
 
 
+// Function to delete a node at any position in the linked list
+void delete_at_any(Node* &head,int idx){
+    Node* tmp = head;
+    for(int i=1;i<idx;i++){
+        tmp = tmp->next;
+    }
+    Node* deleteNode = tmp->next;
+    tmp->next = tmp->next->next;
+    delete deleteNode;
+}
 int solve() {
 
     // Node* head = new Node(10);
@@ -107,10 +119,12 @@ int solve() {
         }
         insert_at_tail_optimised(head,tail,val);
     }
-    print_linked_list(head);
+    //print_linked_list(head);
 
-    print_reverse(head);
-    delete_at_head(head);
+    //print_reverse(head);
+    //delete_at_head(head);
+    delete_at_any(head,2);
+    print_linked_list(head);
 
 
     // head->next = a;
