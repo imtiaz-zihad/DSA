@@ -48,6 +48,7 @@ void insert_at_tail_optimised(Node* &head,Node* &tail,int val){
         
 
     tail->next = newnode;
+    tail = tail->next;
 }
 
 //Function to insert a new node at any position in the linked list
