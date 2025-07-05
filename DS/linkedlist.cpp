@@ -74,6 +74,15 @@ void print_linked_list(Node* &head){
     }
 }
 
+void print_reverse(Node* tmp){
+    //base case
+    if(tmp== NULL){
+        return;
+    }
+    print_reverse(tmp->next);
+    cout << tmp-> val << endl;
+}
+
 
 int solve() {
 
@@ -92,6 +101,8 @@ int solve() {
         insert_at_tail_optimised(head,tail,val);
     }
     print_linked_list(head);
+
+    print_reverse(head);
 
 
     // head->next = a;
