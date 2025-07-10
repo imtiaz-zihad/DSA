@@ -125,16 +125,29 @@ void delete_at_any_pos(Node* &head,int idx){
 }
 int solve() {
 
-    Node* head = new Node(10);
-    Node* a = new Node(20);
-    Node* tail = new Node(30);
+    // Node* head = new Node(10);
+    // Node* a = new Node(20);
+    // Node* tail = new Node(30);
 
 
-    head->next = a;
-    a->prev = head;
+    Node* head = NULL;
+    Node* tail = NULL;
 
-    a->next = tail;
-    tail->prev= a;
+    int val;
+    while(true){
+        cin >> val ;
+        if(val == -1){
+            break;
+        }
+        insert_at_tail(head,tail,val);
+    }
+
+
+    // head->next = a;
+    // a->prev = head;
+
+    // a->next = tail;
+    // tail->prev= a;
 
     insert_at_head(head,5);
     insert_at_tail(head,tail,40);
