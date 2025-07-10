@@ -18,7 +18,8 @@ public:
     }
 };
 
-//Function to print the linked list in forward order
+
+// Function to print the doubly linked list in forward direction
 void print_forward(Node* head){
     Node* tmp = head;
     while(tmp  != NULL){
@@ -28,7 +29,8 @@ void print_forward(Node* head){
     cout << endl;
 }
 
-//Function to print the linked list in backward order
+
+// Function to print the doubly linked list in backward direction
 void print_backward(Node* tail){
     Node* tmp = tail;
     while(tmp  != NULL){
@@ -36,6 +38,18 @@ void print_backward(Node* tail){
         tmp= tmp->prev;
     }
     cout << endl;
+}
+
+
+// Function to insert a new node at the head of the doubly linked list
+
+void insert_at_head(Node* &head,int val){
+    Node* newnode= new Node(val);
+
+    newnode->next = head;
+    head->prev = newnode;
+
+    head =newnode;
 }
 
 int solve() {
@@ -51,8 +65,10 @@ int solve() {
     a->next = tail;
     tail->prev= a;
 
+    insert_at_head(head,40);
+
     print_forward(head);
-    print_backward(tail);
+    //print_backward(tail);
    return 0;
 }
 
