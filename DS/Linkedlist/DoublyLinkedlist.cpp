@@ -52,6 +52,19 @@ void insert_at_head(Node* &head,int val){
     head =newnode;
 }
 
+// Function to insert a new node at the tail of the doubly linked list
+void insert_at_tail(Node* &head,Node* &tail,int val){
+    Node* newnode = new Node(val);
+
+    if(head==NULL){
+        head= newnode;
+        tail = newnode;
+        return;
+    }
+    tail->next=newnode;
+    newnode->prev=tail;
+    tail=newnode;
+}
 int solve() {
 
     Node* head = new Node(10);
@@ -65,7 +78,8 @@ int solve() {
     a->next = tail;
     tail->prev= a;
 
-    insert_at_head(head,40);
+    insert_at_head(head,5);
+    insert_at_tail(head,tail,40);
 
     print_forward(head);
     //print_backward(tail);
