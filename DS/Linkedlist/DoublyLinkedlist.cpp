@@ -81,6 +81,48 @@ void insert_at_any_pos(Node* &head,int idx,int val){
     newnode->prev = tmp->next;
 
 }
+// Function to delete a node at the head of the doubly linked list
+void delete_at_head(Node* &head,Node* &tail){
+    Node* deletenode = head;
+    head= head->next;
+    delete deletenode;
+
+     if (head==NULL)
+    {
+        tail=NULL;
+        return;
+    }
+    head->prev = NULL;
+
+    
+}
+
+// Function to delete a node at the tail of the doubly linked list
+void delete_at_tail(Node* &head,Node* &tail){
+    Node* deletenode = tail;
+
+    tail=tail->prev;
+    delete deletenode;
+    if(tail == NULL){
+        head=NULL;
+        return;
+    }
+    tail->next = NULL;
+}
+// Function to delete a node at any position in the doubly linked list
+void delete_at_any_pos(Node* &head,int idx){
+    Node* tmp = head;
+
+    for (int i = 1; i < idx; i++)
+    {
+       tmp = tmp->next;
+    }
+    Node* deletenode = tmp->next;
+    tmp->next =tmp->next->next;
+    tmp->next->prev=tmp; 
+
+    delete deletenode;
+}
 int solve() {
 
     Node* head = new Node(10);
@@ -97,6 +139,9 @@ int solve() {
     insert_at_head(head,5);
     insert_at_tail(head,tail,40);
     insert_at_any_pos(head,2,100);
+    delete_at_head(head,tail);
+    delete_at_tail(head,tail);
+    delete_at_any_pos(head,1);
 
     print_forward(head);
     //print_backward(tail);
