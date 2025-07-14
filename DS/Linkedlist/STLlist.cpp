@@ -27,6 +27,34 @@ int main(){
     l.pop_back(); // Remove from tail  
     l.insert(next(l.begin(), 2), 100); // Insert 100 at position 2(insert any postion)
     l.erase(next(l.begin(), 1)); // Erase element at position 1
+    l.erase(next(l.begin(), 1), next(l.begin(), 3)); // Erase elements from position 1 to 2(earse multiple value)
+    replace(l.begin(), l.end(), 20, 50); // Replace all occurrences of 20 with 50
+    auto it = find(l.begin(), l.end(), 30); // Find element 30 in the list
+
+    if (it == l.end()) {
+        cout << "Element 30 not found." << endl;
+    } else {
+        cout << "Element 30 found." << endl;
+    }
+    
+
+    //Operations
+    l.remove(50); // Remove all occurrences of 50
+    l.sort(); // Sort the list(in ascending order)
+    l.sort(greater<int>()); // Sort the list in descending order
+    l.unique(); // Remove consecutive duplicates(only works if the list is sorted) 
+    l.reverse(); // Reverse the list
+
+
+    //Element access
+    cout << "Front element: " << l.front() << endl; // Access the first element
+    cout << "Back element: " << l.back() << endl; // Access the last
+    cout << "Element at position 2: " << *next(l.begin(), 2) << endl; // Access element at position 2
+
+    // Iterators
+    cout << *l.begin() << endl; // Access first element using iterator
+    cout << l.back() << endl; // Access last element using iterator
+    
 
 
     //printing the list
