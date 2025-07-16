@@ -123,6 +123,19 @@ void delete_at_any_pos(Node* &head,int idx){
 
     delete deletenode;
 }
+// Doubly linkedlist Asending order Sorting
+void sort_linked_list(Node* head) {
+    if (head == NULL || head->next == NULL) return;
+
+    for (Node* i = head; i->next != NULL; i = i->next) {
+        for (Node* j = i->next; j != NULL; j = j->next) {
+            if (i->val > j->val) {
+                swap(i->val, j->val);
+            }
+        }
+    }
+}
+
 int solve() {
 
     // Node* head = new Node(10);
