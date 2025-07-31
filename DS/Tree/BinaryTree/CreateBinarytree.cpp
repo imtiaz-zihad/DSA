@@ -12,8 +12,31 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-}
+};
 
+void preorder(Node* root){
+    if(root == NULL)
+        return;
+    cout <<root->val << " ";
+    preorder(root->left);  // left
+    preorder(root->right); // right
+}
+void inorder(Node* root){
+    if(root==NULL)
+        return ;
+    inorder(root->left);  // left
+    cout <<root->val << " ";
+    inorder(root->right); // right
+
+}
+void postorder(Node* root){
+    if(root==NULL)
+        return ;
+    postorder(root->left);  // left
+    postorder(root->right); // right
+    cout <<root->val << " ";
+
+}
 int solve() {
     
     Node* root = new Node(10);
@@ -28,6 +51,11 @@ int solve() {
     a->left = c;
     b->left = d;
     b->right= e;
+
+
+    preorder(root);
+    inorder(root);
+    postorder(root);
     return 0;
 }
 
