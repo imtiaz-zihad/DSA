@@ -60,17 +60,44 @@ Node *input_tree()
     return root;
 }
 
-//Complexity: O(h) where h is the height of the tree
-bool search(Node *root, int val)
+void level_order(Node *root)
 {
-    if (root == NULL)
-        return false;
-    if (root->val == val)
-        return true;
-    if (root->val > val)
-        return search(root->left, val);
-    else
-        return search(root->right, val);
+    if(root == NULL){
+        cout << "No Tree" << endl;
+        return;
+    }
+    queue<Node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        Node *f = q.front();
+        q.pop();
+
+        cout << f->val << " ";
+
+        if (f->left != NULL)
+            q.push(f->left);
+        if (f->right != NULL)
+            q.push(f->right);
+    }
+}
+
+void insert(Node* &root,int val){
+    if(root==NULL)
+        root = new Node(val);
+    if(root->val > val){
+        //left 
+        if(root->left == NULL)
+            root->left = new Node(val);
+        else
+            insert(root->left,val);
+    }else{
+        //right
+         if(root->right == NULL)
+            root->right = new Node(val);
+        else
+            insert(root->right,val);
+    }
 }
 
 int solve()
@@ -78,10 +105,8 @@ int solve()
     Node *root = input_tree();
     int val;
     cin >> val;
-    if (search(root, val))
-        cout << "Found" << endl;
-    else
-        cout << "Not Found" << endl;
+    insert(root,val);
+    level_order(root);
     return 0;
 }
 
