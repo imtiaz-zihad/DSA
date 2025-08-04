@@ -82,6 +82,8 @@ void level_order(Node *root)
     }
 }
 
+// complexity O(h) where h is height of tree
+// Insertion in BST
 void insert(Node* &root,int val){
     if(root==NULL)
         root = new Node(val);
