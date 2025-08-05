@@ -39,7 +39,7 @@ void level_order(Node *root)
     }
 }
 
-Node *convert(int a[], int n, int l, int r)
+Node* convert(int a[], int n, int l, int r)
 {
     if (l > r)
         return NULL;
