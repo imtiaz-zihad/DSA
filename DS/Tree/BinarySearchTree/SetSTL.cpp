@@ -9,7 +9,7 @@ int solve(){
     cin >> n;
     while (n--) {
         int x;
-        cout << "Enter element: ";
+        cout << "Enter element: ";  
         cin >> x;
         s.insert(x);
     }
