@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define endl '\n'
+
+vector<int> adj_list[1005];
+bool vis[1005];
+
+void bfs(int src)
+{
+    queue<int> q;
+    q.push(src);
+    vis[src] = true;
+
+    while (!q.empty())
+    {
+        int parent = q.front();
+        q.pop();
+
+        // cout << parent << " ";
+
+        for (int child : adj_list[parent])
+        {
+            if (!vis[child])
+            {
+                vis[child] = true;
+                q.push(child);
+            }
+        }
+    }
+}
+
+int solve()
+{
+    int n, m;
+    cin >> n >> m;
+
+    while (m--)
+    {
+        int u, v;
+        cin >> u >> v;
+        adj_list[u].push_back(v);
+        adj_list[v].push_back(u);
+    }
+    memset(vis, false, sizeof(vis));
+    int src, dest;
+    cin >> src >> dest;
+
+    bfs(src);
+    if (vis[dest])
+        cout << "Visited";
+    else
+        cout << "Not Visited";
+    return 0;
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    solve();
+    return 0;
+}
