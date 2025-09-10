@@ -12,8 +12,8 @@ void dfs(int src){
     if(vis[child] && parent[src] != child)
     cycle = true;
     if(!vis[child]){
-      dfs(child);
       parent[child] = src;
+      dfs(child);
     }
   }
 }
